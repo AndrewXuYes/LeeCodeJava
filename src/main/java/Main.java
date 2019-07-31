@@ -7,7 +7,7 @@ class Main {
 
     private static void quickSort(int[] num, int left, int right) {
         if (left < right) {
-
+            //Time
             int mid, i, j, temp;
             mid = num[left];
             i = left;
