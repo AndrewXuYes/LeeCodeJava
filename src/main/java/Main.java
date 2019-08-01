@@ -11,7 +11,7 @@ class Main {
         int i = 0, j = 0, k = 0;
         int[] c = new int[10];
         while (i < num1len && j < num2len) {
-            if (num1[i] <= num2[j] && i < num1len) {
+            if (num1[i] <= num2[j] ) {
                 c[k++] = num1[i++];
             }
             if (num1[i] >= num2[j]) {
