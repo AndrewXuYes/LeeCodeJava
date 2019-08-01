@@ -1,41 +1,38 @@
 class Main {
     public static void main(String[] args) {
-        int[] num = {6, 1, 2, 7, 9, 3, 4, 5, 0, 8,9,6,7};
-        soutNum(num);
-        quickSort(num, 0, num.length - 1);
+        int[] num1 = {2, 6, 7, 8, 9, 10};
+        int[] num2 = {1, 3, 5, 9};
+        soutNum(merge_sort(num1, num2));
     }
 
-    private static void quickSort(int[] num, int left, int right) {
-        if (left < right) {
-
-            int mid, i, j, temp;
-            mid = num[left];
-            i = left;
-            j = right;
-            while (i != j) {
-                while (mid <= num[j] && i < j) j--;
-                while (mid >= num[i] && i < j) i++;
-                if (i < j) {
-                    temp = num[i];
-                    num[i] = num[j];
-                    num[j] = temp;
-                }
+    private static int[] merge_sort(int[] num1, int[] num2) {
+        int num1len = num1.length;
+        int num2len = num2.length;
+        int i = 0, j = 0, k = 0;
+        int[] c = new int[10];
+        while (i < num1len && j < num2len) {
+            if (num1[i] <= num2[j] && i < num1len) {
+                c[k++] = num1[i++];
             }
-            num[left] = num[i];
-            num[i] = mid;
-
-            soutNum(num);
-
-            quickSort(num, left, mid - 1);
-            quickSort(num, mid + 1, right);
+            if (num1[i] >= num2[j]) {
+                c[k++] = num2[j++];
+            }
         }
+        if (i < num1len) {
+            while (i < num1len) {
+                c[k++] = num1[i++];
+            }
+        }
+        if (j < num2len) {
+            while (j < num2len) {
+                c[k++] = num2[j++];
+            }
+        }
+        return c;
     }
 
     private static void soutNum(int[] num) {
-        for (int tttt : num) {
-            System.out.print(tttt + " ");
-        }
+        for (int tttt : num) System.out.print(tttt + " ");
         System.out.println();
     }
-
 }
