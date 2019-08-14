@@ -1,3 +1,5 @@
+package Basic;
+
 public class BubbleSort {
 
     public static int[] bubble_sort(int[] num) {
@@ -14,7 +16,7 @@ public class BubbleSort {
                 }
             }
             if (!flag) break;
-            Sout.soutNum(num);
+            QuickSort.Sout.soutNum(num);
         }
         return num;
     }

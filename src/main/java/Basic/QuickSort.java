@@ -1,3 +1,5 @@
+package Basic;
+
 public class QuickSort {
 
     public static void quickSort(int[] num, int left, int right) {
@@ -20,7 +22,6 @@ public class QuickSort {
             num[i] = mid;
 
             Sout.soutNum(num);
-
             quickSort(num, left, mid - 1);
             quickSort(num, mid + 1, right);
         }

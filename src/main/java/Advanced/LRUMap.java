@@ -1,3 +1,5 @@
+package Advanced;
+
 import lombok.Data;
 
 import java.util.HashMap;
@@ -6,13 +8,13 @@ import java.util.Map;
 @Data
 public class LRUMap<K, V> {
 
-    private final Map<K, V> cacheMap = new HashMap<>();
-    private int cacheSize;
-    private int nodeCount;
-    private Node<K, V> header;
-    private Node<K, V> tailer;
+    public final Map<K, V> cacheMap = new HashMap<>();
+    public int cacheSize;
+    public int nodeCount;
+    public Node<K, V> header;
+    public Node<K, V> tailer;
 
-    LRUMap(int cacheSize) {
+    public LRUMap(int cacheSize) {
         this.cacheSize = cacheSize;
         //头结点的下一个结点为空
         header = new Node<>();
@@ -26,7 +28,7 @@ public class LRUMap<K, V> {
         tailer.next = header;
     }
 
-    void put(K key, V value) {
+    public void put(K key, V value) {
         cacheMap.put(key, value);
         //双向链表中添加结点
         addNode(key, value);
@@ -41,7 +43,7 @@ public class LRUMap<K, V> {
         return cacheMap.get(key);
     }
 
-    private void moveToHead(Node<K, V> node) {
+    public void moveToHead(Node<K, V> node) {
         //如果是最后的一个节点
         if (node.tail == null) {
             node.next.tail = null;
@@ -67,7 +69,7 @@ public class LRUMap<K, V> {
     /**
      * 链表查询 效率较低
      */
-    private Node<K, V> getNode(K key) {
+    public Node<K, V> getNode(K key) {
         Node<K, V> node = tailer;
         while (node != null) {
             if (node.getKey().equals(key)) {
@@ -81,7 +83,7 @@ public class LRUMap<K, V> {
     /**
      * 写入头结点
      */
-    private void addNode(K key, V value) {
+    public void addNode(K key, V value) {
         Node<K, V> node = new Node<>(key, value);
         //容量满了删除最后一个
         if (cacheSize == nodeCount) {
@@ -95,7 +97,7 @@ public class LRUMap<K, V> {
     /**
      * 添加头结点
      */
-    private void addHead(Node<K, V> node) {
+    public void addHead(Node<K, V> node) {
         //写入头结点
         header.next = node;
         node.tail = header;
@@ -109,7 +111,7 @@ public class LRUMap<K, V> {
         }
     }
 
-    private void delTail() {
+    public void delTail() {
         //把尾结点从缓存中删除
         cacheMap.remove(tailer.getKey());
         //删除尾结点
@@ -120,9 +122,9 @@ public class LRUMap<K, V> {
     }
 
     @Data
-    private static class Node<K, V> {
-        private K key;
-        private V value;
+    public static class Node<K, V> {
+        public K key;
+        public V value;
         Node<K, V> tail;
         Node<K, V> next;
 

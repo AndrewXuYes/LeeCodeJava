@@ -1,3 +1,5 @@
+package Basic;
+
 public class InsertSort {
     //ERROR
     public static void insertionSort(int[] num) {

@@ -1,6 +1,9 @@
+package Basic;
+
 import java.util.List;
 
 public class Sout {
+
 
     public static void soutNum(List<String> num) {
         num.forEach(item -> {
@@ -15,4 +18,5 @@ public class Sout {
         }
         System.out.println();
     }
+
 }

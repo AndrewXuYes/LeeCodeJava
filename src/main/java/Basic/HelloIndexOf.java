@@ -1,3 +1,5 @@
+package Basic;
+
 public class HelloIndexOf {
 
     public static int helleIndexof(String org, String comper) {

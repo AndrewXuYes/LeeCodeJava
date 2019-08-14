@@ -1,3 +1,5 @@
+package Basic;
+
 public class MergeSort {
 
     public static int[] merge_sort(int[] num1, int[] num2) {
