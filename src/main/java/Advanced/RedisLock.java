@@ -6,9 +6,7 @@ import redis.clients.jedis.Jedis;
 
 import java.util.Collections;
 
-/**
- * @描述：Redis 做分布式锁，利用 redis的setnx（SET if Not eXists）命令 和 getset 命令，即下面代码中的方法 setIfAbsent 和 getAndSet
- */
+
 public class RedisLock {
 
 
