@@ -1,5 +1,7 @@
-import LeeCode.AddTwoNumbers;
 import Utils.Sout;
+
+import static LeeCode.AddTwoNumbers.ListNode;
+import static LeeCode.AddTwoNumbers.addTwoNumbers;
 
 class Main {
 
@@ -10,15 +12,19 @@ class Main {
 
      */
     public static void main(String[] args) {
-        AddTwoNumbers.ListNode listNode = new AddTwoNumbers.ListNode(2);
-        listNode.setNext(new AddTwoNumbers.ListNode(4));
-        listNode.setNext(new AddTwoNumbers.ListNode(3));
+        ListNode listNode1 = new ListNode(2);
+        ListNode listNode11 = new ListNode(4);
+        ListNode listNode111 = new ListNode(3);
+        listNode1.setNext(listNode11);
+        listNode11.setNext(listNode111);
 
-        AddTwoNumbers.ListNode listNode2 = new AddTwoNumbers.ListNode(5);
-        listNode2.setNext(new AddTwoNumbers.ListNode(6));
-        listNode2.setNext(new AddTwoNumbers.ListNode(5));
+        ListNode listNode2 = new ListNode(5);
+        ListNode listNode22 = new ListNode(6);
+        ListNode listNode222 = new ListNode(4);
+        listNode2.setNext(listNode22);
+        listNode22.setNext(listNode222);
 
-        Sout.soutNum(AddTwoNumbers.addTwoNumbers(listNode, listNode2));
+        Sout.soutNum(addTwoNumbers(listNode1, listNode2));
         //0没了？
     }
 }

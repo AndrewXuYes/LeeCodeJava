@@ -3,6 +3,7 @@ package Utils;
 import LeeCode.AddTwoNumbers;
 
 import java.util.List;
+import java.util.Stack;
 
 public class Sout {
 
@@ -22,9 +23,13 @@ public class Sout {
     }
 
     public static void soutNum(AddTwoNumbers.ListNode num) {
+        Stack stack = new Stack();
         while (num != null) {
-            System.out.print(num.getVal());
+            stack.push(num.getVal());
             num = num.getNext();
+        }
+        while (!stack.empty()) {
+            System.out.print(stack.pop());
         }
         System.out.println();
     }
