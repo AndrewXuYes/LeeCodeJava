@@ -1,5 +1,7 @@
 package Basic;
 
+import Utils.Sout;
+
 public class BubbleSort {
 
     public static int[] bubble_sort(int[] num) {
@@ -16,7 +18,7 @@ public class BubbleSort {
                 }
             }
             if (!flag) break;
-            QuickSort.Sout.soutNum(num);
+            Sout.soutNum(num);
         }
         return num;
     }

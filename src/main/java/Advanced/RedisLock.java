@@ -35,8 +35,8 @@ public class RedisLock {
     private static final Long RELEASE_SUCCESS = 1L;
 
     public static boolean releaseDistributedLock(Jedis jedis, String lockKey, String requestId) {
-        String script = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
-        Object result = jedis.eval(script, Collections.singletonList(lockKey), Collections.singletonList(requestId));
+        String lua = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
+        Object result = jedis.eval(lua, Collections.singletonList(lockKey), Collections.singletonList(requestId));
         return RELEASE_SUCCESS.equals(result);
 
     }
@@ -61,9 +61,7 @@ public class RedisLock {
     public boolean lock(String key, String value) {
         //如果key值不存在，则返回 true，且设置 value
 
-        if (redisTemplate.opsForValue().setIfAbsent(key, value)) {
-            return true;
-        }
+        if (redisTemplate.opsForValue().setIfAbsent(key, value)) return true;
 
         //获取key的值，判断是是否超时
         String curVal = redisTemplate.opsForValue().get(key);

@@ -1,5 +1,7 @@
 package Basic;
 
+import Utils.Sout;
+
 public class QuickSort {
 
     public static void quickSort(int[] num, int left, int right) {

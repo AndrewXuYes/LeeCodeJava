@@ -1,5 +1,7 @@
 package Basic;
 
+import Utils.Sout;
+
 public class InsertSort {
     //ERROR
     public static void insertionSort(int[] num) {
