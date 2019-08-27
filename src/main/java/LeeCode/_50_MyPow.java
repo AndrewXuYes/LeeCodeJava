@@ -1,6 +1,6 @@
 package LeeCode;
 
-public class MyPow {
+public class _50_MyPow {
 
     /**
      * 实现 pow(x, n) ，即计算 x 的 n 次幂函数。
