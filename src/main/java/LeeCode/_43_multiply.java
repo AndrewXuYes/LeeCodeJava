@@ -24,10 +24,8 @@ public class _43_multiply {
     }
 
     public static String multiply3(String num1, String num2) {
-
         int num1len = num1.length();
         int num2len = num2.length();
-
         if (num1len == 0 || num2len == 0) return "";
 
         int[] mul = new int[num1len + num2len];
@@ -37,8 +35,8 @@ public class _43_multiply {
             for (int j = num2len - 1; j >= 0; j--) {
                 int bitmul = (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
                 bitmul += mul[i + j + 1]; // 先加低位判断是否有新的进位
-                mul[i + j] += bitmul / 10;
                 mul[i + j + 1] = bitmul % 10;
+                mul[i + j] += bitmul / 10;
             }
         }
 
@@ -54,6 +52,5 @@ public class _43_multiply {
         System.out.println("multiply==" + multiply("12", "12"));
         System.out.println("multiply2==" + multiply2("12", "12"));
         System.out.println("multiply3==" + multiply3("12", "12"));
-
     }
 }
