@@ -25,7 +25,7 @@ public class CountStringAndSort {
             }
         });
 
-        String b = list.toString().replace("=", ":").replace("[", "").replace("]", "").replace(",", ";");
+        String b = list.toString().replace("=", ":").replace("[", "").replace("]", "").replace(",", ";").replace(" ","");
         System.out.println(b + ";");
         return b;
     }
