@@ -34,7 +34,7 @@ public class _43_multiply {
         for (int i = num1len - 1; i >= 0; i--) {
             for (int j = num2len - 1; j >= 0; j--) {
                 int bitmul = (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
-                bitmul += mul[i + j + 1]; // 先加低位判断是否有新的进位
+                bitmul += mul[i + j + 1];
                 mul[i + j + 1] = bitmul % 10;
                 mul[i + j] += bitmul / 10;
             }
@@ -50,7 +50,7 @@ public class _43_multiply {
 
     public static void main(String[] args) {
         System.out.println("multiply==" + multiply("12", "12"));
-        System.out.println("multiply2==" + multiply2("12", "12"));
+//        System.out.println("multiply2==" + multiply2("12", "12"));
         System.out.println("multiply3==" + multiply3("12", "12"));
     }
 }
