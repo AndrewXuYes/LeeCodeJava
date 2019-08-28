@@ -28,7 +28,7 @@ public class _37_countAndSay {
      */
 
     public static String countAndSay(int n) {
-
+        return "";
     }
 
 
