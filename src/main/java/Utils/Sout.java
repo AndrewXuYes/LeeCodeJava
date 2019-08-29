@@ -7,7 +7,7 @@ import java.util.Stack;
 
 public class Sout {
 
-    public static void soutNum(List<String> num) {
+    public static void soutNum(List num) {
         num.forEach(item -> {
             System.out.print(item + " ");
         });

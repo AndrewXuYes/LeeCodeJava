@@ -8,6 +8,10 @@ import java.util.Map;
 @Data
 public class LRUMap<K, V> {
 
+
+    /**
+     *
+     */
     public final Map<K, V> cacheMap = new HashMap<>();
     public int cacheSize;
     public int nodeCount;
