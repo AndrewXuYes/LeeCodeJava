@@ -1,6 +1,6 @@
 package Advanced;
 
-public class ZJTDWangDaChui {
+public class ZJTD01 {
 
     /**
      * 我叫王大锤，是一家出版社的编辑。我负责校对投稿来的英文稿件，这份工作非常烦人，因为每天都要去修正无数的拼写错误。但是，优秀的人总能在平凡的工作中发现真理。我发现一个发现拼写错误的捷径：
