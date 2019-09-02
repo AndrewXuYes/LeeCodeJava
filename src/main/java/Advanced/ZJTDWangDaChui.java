@@ -35,19 +35,22 @@ public class ZJTDWangDaChui {
 
     public static String Wang(String str) {
         StringBuilder sb = new StringBuilder(str);
-        for (int j = 2; j < sb.length(); j++) {
+
+        for (int j = 2; j < sb.length(); j++)
             if (sb.charAt(j) == sb.charAt(j - 1) && sb.charAt(j) == sb.charAt(j - 2))
                 sb.deleteCharAt(j--);
-            if (j < sb.length() - 2)
-                if (sb.charAt(j) == sb.charAt(j - 1) && sb.charAt(j + 1) == sb.charAt(j + 2))
-                    sb.deleteCharAt(j-- + 2);
-        }
+        //可以只扫描一遍，单做判断
+        for (int j = 4; j < sb.length(); j++)
+            if (sb.charAt(j - 3) == sb.charAt(j - 2) && sb.charAt(j - 1) == sb.charAt(j))
+                sb.deleteCharAt(j + 3);
+
         return sb.toString();
     }
 
     public static void main(String[] args) {
-        System.out.println(Wang("helloo"));
-        System.out.println(Wang("wooooooow"));
+//        System.out.println(Wang("helloo"));
+//        System.out.println(Wang("wooooooow"));
+        System.out.println(Wang("qaaxxjjjttasdduuxxpccbbbeeeijjmyyrrrllxxkkknnezzzqqsqqqxxayyeenvveejjbbcccssyzzznnnsspyyyllllllqqqoouoonuuuunnnmsssvvksccmmmtttppjjvwns"));
     }
 
 }
