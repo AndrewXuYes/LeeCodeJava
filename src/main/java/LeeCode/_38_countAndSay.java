@@ -26,7 +26,7 @@ public class _38_countAndSay {
      * 输入: 4
      * 输出: "1211"
      */
-
+11
     public static String countAndSay(int n) {
         return "";
     }

@@ -20,7 +20,6 @@ public class _3_LongestSubstring {
         return max;
     }
 
-
     /**
      * https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/wu-zhong-fu-zi-fu-de-zui-chang-zi-chuan-by-leetcod/
      * <p>
@@ -42,7 +41,6 @@ public class _3_LongestSubstring {
         }
         return max;
     }
-
 
     public static void main(String[] args) {
         System.out.println(lengthOfLongestSubstring22("abcabda"));//3

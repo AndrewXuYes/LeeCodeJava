@@ -38,7 +38,6 @@ public class _5_LengthOfLongestSubstring {
                     flag++;
                 }
             }
-
         }
         return max;
     }
