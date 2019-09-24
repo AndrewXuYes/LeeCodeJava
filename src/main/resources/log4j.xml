@@ -22,7 +22,7 @@
         <!-- <param name="Target" value="System.out"/> -->
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern"
-                   value="%d{yyyy-MM-dd HH:mm:ss a} [Thread: %t][ Class:%c  Method: %l ]%n%p:%m%n"/>
+                   value="%d{yyyy-MM-dd HH:mm:ss a} [Thread: %t][Class:%c]  %p:%m%n"/>
         </layout>
     </appender>
 
