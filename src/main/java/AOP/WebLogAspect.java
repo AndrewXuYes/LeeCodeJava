@@ -55,8 +55,6 @@ public class WebLogAspect {
 
     /**
      * 在切点之后织入
-     *
-     * @throws Throwable
      */
     @After("webLog()")
     public void doAfter() throws Throwable {
@@ -66,10 +64,6 @@ public class WebLogAspect {
 
     /**
      * 环绕
-     *
-     * @param proceedingJoinPoint
-     * @return
-     * @throws Throwable
      */
     @Around("webLog()")
     public Object doAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
@@ -85,12 +79,8 @@ public class WebLogAspect {
 
     /**
      * 获取切面注解的描述
-     *
-     * @param joinPoint 切点
-     * @return 描述信息
-     * @throws Exception
      */
-    public String getAspectLogDescription(JoinPoint joinPoint) throws Exception {
+    private String getAspectLogDescription(JoinPoint joinPoint) throws Exception {
         String targetName = joinPoint.getTarget().getClass().getName();
         String methodName = joinPoint.getSignature().getName();
         Object[] arguments = joinPoint.getArgs();
@@ -108,5 +98,4 @@ public class WebLogAspect {
         }
         return description.toString();
     }
-
 }
