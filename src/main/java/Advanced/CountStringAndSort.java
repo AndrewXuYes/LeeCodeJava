@@ -1,7 +1,6 @@
 package Advanced;
 
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class CountStringAndSort {
     //统计字符串字母出现次数，从大到小输出
@@ -9,30 +8,25 @@ public class CountStringAndSort {
 
     public static String CountStringAndSort(String str) {
         System.out.println("str==" + str);
-        Map<Character, Integer> hashMap = new TreeMap<Character, Integer>();
+        Map<Character, Integer> hashMap = new HashMap<Character, Integer>();
         for (int i = 0; i < str.length(); i++) {
             if (hashMap.containsKey(str.charAt(i))) {
                 int count = hashMap.get(str.charAt(i));
                 hashMap.put(str.charAt(i), ++count);
-            } else
-                hashMap.put(str.charAt(i), 1);
-
+            } else hashMap.put(str.charAt(i), 1);
         }
 
-//      List<Map.Entry<Character, Integer>> list = new ArrayList<>(hashMap.entrySet());
-//        list.sort(new Comparator<Map.Entry<Character, Integer>>() {
-//            @Override
-//            public int compare(Map.Entry<Character, Integer> m, Map.Entry<Character, Integer> n) {
-//                return n.getValue() - m.getValue();
-//            }
-//        });
+        List<Map.Entry<Character, Integer>> list = new ArrayList<Map.Entry<Character, Integer>>(hashMap.entrySet());
+        Collections.sort(list, new Comparator<Map.Entry<Character, Integer>>() {
+            public int compare(Map.Entry o1, Map.Entry o2) {
+                return (int) o1.getValue() - (int) o2.getValue();
+            }
+        });
 
-        // String b = list.toString().replace("=", ":").replace("[", "").replace("]", "").replace(",", ";").replace(" ","");
-        System.out.println(hashMap + ";");
-        return hashMap + "";
+        return list + "";
     }
 
     public static void main(String[] args) {
-        CountStringAndSort("aafsfdadsdabbc");
+        System.out.println(CountStringAndSort("aafsfdadsdabbc"));
     }
 }
