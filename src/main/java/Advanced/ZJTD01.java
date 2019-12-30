@@ -49,8 +49,8 @@ public class ZJTD01 {
     }
 
     public static void main(String[] args) {
-//        System.out.println(Wang("helloo"));
-//        System.out.println(Wang("wooooooow"));
+        System.out.println(Wang("helloo"));
+        System.out.println(Wang("wooooooow"));
         System.out.println(Wang("qaaxxjjjttasdduuxxpccbbbeeeijjmyyrrrllxxkkknnezzzqqsqqqxxayyeenvveejjbbcccssyzzznnnsspyyyllllllqqqoouoonuuuunnnmsssvvksccmmmtttppjjvwns"));
     }
 
