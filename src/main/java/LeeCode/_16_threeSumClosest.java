@@ -27,7 +27,7 @@ public class _16_threeSumClosest {
 
 
         int[] nums = {1, 2, 5, -5, -7, 3, 0};
-        int target = 3;
+        int target =18;
 
         System.out.println(threeSumClosest(nums, target));
     }
