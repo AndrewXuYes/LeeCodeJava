@@ -1,6 +1,6 @@
 package Utils;
 
-import LeeCode._2_AddTwoNumbers;
+import LeeCode._2_addTwoNumbers;
 
 import java.util.List;
 import java.util.Stack;
@@ -21,7 +21,7 @@ public class Sout {
         System.out.println();
     }
 
-    public static void soutNum(_2_AddTwoNumbers.ListNode num) {
+    public static void soutNum(_2_addTwoNumbers.ListNode num) {
         Stack stack = new Stack();
         while (num != null) {
             stack.push(num.getVal());

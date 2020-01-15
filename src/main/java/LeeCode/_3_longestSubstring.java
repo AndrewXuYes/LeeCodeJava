@@ -3,7 +3,7 @@ package LeeCode;
 import java.util.HashMap;
 import java.util.Map;
 
-public class _3_LongestSubstring {
+public class _3_longestSubstring {
 
     public static int lengthOfLongestSubstring(String s) {
         if (s.length() < 1) return 0;
