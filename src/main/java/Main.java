@@ -16,16 +16,7 @@ class Main {
 
         String str = "aGVsbG8=";
 
-//        byte[] bytes = str.getBytes();
-//        //Base64 加密
-//        String encoded = Base64.getEncoder().encodeToString(bytes);
-//        System.out.println("Base 64 加密后：" + encoded);
-
-        //Base64 解密
-        byte[] decoded = Base64.getDecoder().decode(str);
-        System.out.println("decoded" + decoded);
-        String decodeStr = new String(decoded);
-        System.out.println("Base 64 解密后：" + decodeStr);
+        //font consolas
 
 
     }
