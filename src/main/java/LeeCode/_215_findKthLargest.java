@@ -3,6 +3,7 @@ package LeeCode;
 
 import java.util.PriorityQueue;
 
+import static Basic.FindKthElement.findKthElement;
 import static Utils.Sout.soutNum;
 
 public class _215_findKthLargest {
@@ -38,6 +39,9 @@ public class _215_findKthLargest {
         System.out.println();
         System.out.println(findKthLargest2(new int[]{3, 2, 1, 5, 6, 4}, 2));
         System.out.println(findKthLargest2(new int[]{3, 2, 3, 1, 2, 4, 5, 5, 6}, 4));
+        System.out.println();
+        System.out.println(findKthElement(new int[]{3, 2, 1, 5, 6, 4}, 2));
+        System.out.println(findKthElement(new int[]{3, 2, 3, 1, 2, 4, 5, 5, 6}, 4));
 
     }
 }
