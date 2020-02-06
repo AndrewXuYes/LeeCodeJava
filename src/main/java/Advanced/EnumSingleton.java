@@ -7,4 +7,5 @@ public enum EnumSingleton {
     public EnumSingleton getInstance() {
         return INSTANCE;
     }
+
 }
