@@ -19,5 +19,11 @@ public class _66_plusOne {
         System.out.println(Arrays.toString(plusOne(new int[]{1, 2, 3, 9})));
         System.out.println(Arrays.toString(plusOne(new int[]{9, 9, 9, 9})));
 
+
+        int[] aa = new int[]{1, 2, 3, 9};
+        aa = new int[5];
+        aa[0] = 1;
+        System.out.println(Arrays.toString(aa));
+
     }
 }
