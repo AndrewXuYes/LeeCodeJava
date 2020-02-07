@@ -10,7 +10,7 @@ public class _66_plusOne {
             digits[i] %= 10;
             if (digits[i] != 0) return digits;
         }
-        //如果全部都不是9999再之前已经被返回走
+        //如果全部都不是9999再之前已经被返回
         digits = new int[digits.length + 1];
         digits[0] = 1;
         return digits;

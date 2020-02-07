@@ -20,7 +20,7 @@ public class _1_twoNumSum {
 
     public static int[] helloTwoNumSum(int a[], int b) {
 
-        Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> hashMap = new HashMap<>();
         for (int i = 0; i < a.length; i++) {
             System.out.println(i);
             if (hashMap.containsKey(b - a[i])) {

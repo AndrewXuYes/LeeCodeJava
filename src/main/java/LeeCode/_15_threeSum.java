@@ -16,12 +16,12 @@ public class _15_threeSum {
             if (nums[k] > 0) break; // 如果当前数字大于0，则三数之和一定大于0，所以结束循环
             if (k > 0 && nums[k] == nums[k - 1]) continue; // 去重
 
-            int i = k + 1, j = nums.length - 1;
-            while (i < j) {
-                int sum = nums[k] + nums[i] + nums[j];
-                if (sum < 0) i++;
-                else if (sum > 0) j--;
-                else res.add(new ArrayList<>(Arrays.asList(nums[k], nums[i++], nums[j--])));
+            int start = k + 1, end = nums.length - 1;
+            while (start < end) {
+                int sum = nums[k] + nums[start] + nums[end];
+                if (sum < 0) start++;
+                else if (sum > 0) end--;
+                else res.add(new ArrayList<>(Arrays.asList(nums[k], nums[start++], nums[end--])));
             }
         }
         //返回前去重
