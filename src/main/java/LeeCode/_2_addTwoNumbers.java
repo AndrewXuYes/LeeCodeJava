@@ -3,6 +3,8 @@ package LeeCode;
 import Utils.Sout;
 import lombok.Data;
 
+import java.util.Stack;
+
 public class _2_addTwoNumbers {
 
     /**
@@ -27,6 +29,17 @@ public class _2_addTwoNumbers {
         public ListNode(int val) {
             this.val = val;
         }
+    }
+    public static void soutNum(_2_addTwoNumbers.ListNode num) {
+        Stack stack = new Stack();
+        while (num != null) {
+            stack.push(num.getVal());
+            num = num.getNext();
+        }
+        while (!stack.empty()) {
+            System.out.print(stack.pop());
+        }
+        System.out.println();
     }
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
@@ -62,7 +75,7 @@ public class _2_addTwoNumbers {
         listNode2.setNext(listNode22);
         listNode22.setNext(listNode222);
 
-        Sout.soutNum(addTwoNumbers(listNode1, listNode2));
+        soutNum(addTwoNumbers(listNode1, listNode2));
     }
 
 
