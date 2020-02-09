@@ -4,7 +4,6 @@ import lombok.Data;
 
 public class _21_mergeTwoLists {
 
-
     @Data
     public static class ListNode {
         int val;
