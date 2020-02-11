@@ -573,21 +573,33 @@ public class HashMap<K, V> extends AbstractMap<K, V>
      * @param hash hash for key
      * @param key  the key
      * @return the node, or null if none
+     * @author xuzhennan
+     *
+     *
+     *
      */
     final Node<K, V> getNode(int hash, Object key) {
         Node<K, V>[] tab;
         Node<K, V> first, e;
         int n;
         K k;
+        //当table不为空，并且桶中不为空
         if ((tab = table) != null && (n = tab.length) > 0 &&
                 (first = tab[(n - 1) & hash]) != null) {
+            //先检查桶中的头节点是否为我们需要get的节点
             if (first.hash == hash && // always check first node
+                    //满足key的地址相同或equals，返回头节点
                     ((k = first.key) == key || (key != null && key.equals(k))))
                 return first;
+            //桶中不止一个节点
             if ((e = first.next) != null) {
+                //桶中为树
                 if (first instanceof TreeNode)
+                    //在树中查找，这里有机会再讲吧
                     return ((TreeNode<K, V>) first).getTreeNode(hash, key);
+                //这里的do-while循环目的是遍历当前桶中的链表
                 do {
+                    //两个key的hash值相同，并且有相同地址或者equals的key，返回目标节点
                     if (e.hash == hash &&
                             ((k = e.key) == key || (key != null && key.equals(k))))
                         return e;
@@ -596,6 +608,7 @@ public class HashMap<K, V> extends AbstractMap<K, V>
         }
         return null;
     }
+
 
     /**
      * Returns <tt>true</tt> if this map contains a mapping for the
@@ -629,10 +642,14 @@ public class HashMap<K, V> extends AbstractMap<K, V>
      * @param onlyIfAbsent 如果为true，不改变已经存在的value
      * @param evict        如果为false, 该表处于创建模式。
      * @return 先前的值, 或者为null如果没有
-     * @xuzhennan
+     * @author xuzhennan
+     * 1.调用hash(key)方法，根据key对象的hashCode计算出kay的hash，根据hash计算出其在tab数组中的index，将键和值放入Node(Entry)中；
+     * 2.如果index位置的Node为空，称为没碰撞，直接Node放入数组中；
+     * 3.如果碰撞（index位置存在Node），如果key已经存在，替换old value（先跟头结点比较，key不相等时，循环链表比较），否则将Node链接到链表最后。
+     * 4.如果碰撞导致链表的长度大于等于7，将链表的结构转换为红黑树。
+     * 5.如果bucket存放的current capacity（当前容量）超过容量的load factor（0.75），就resize，容量扩大为两倍。
      */
-    final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
-                   boolean evict) {
+    final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
         Node<K, V>[] tab; //存放链表头结点的数组，数组的每个元素相当于一个桶，好像这个链表就存放于一个元素的空间中
         Node<K, V> p; //存放于数组i处的（头）节点
         int n;//数组tab的长度
@@ -642,16 +659,14 @@ public class HashMap<K, V> extends AbstractMap<K, V>
             n = (tab = resize()).length;
         //用(n - 1) & hash计算出插入点在数组的下标。如果插入点为null，将此节点存放于此。（&为长运算符，使用在计算boolean表达式时，会强制计算&两边的算式。此处用作位运算，即将n-1及hash均转为二进制数，相加，同为1则结果为1，否则为0，结果始终在[0,n-1]）
         //（第2个key跟第1个key相同时，必定hash值相同，index也相同）
-        if ((p = tab[i = (n - 1) & hash]) == null)
+        if ((p = tab[i = (n - 1) & hash]) == null) {
             tab[i] = newNode(hash, key, value, null);//键值对的next为空
-            //否则就会发生碰撞
-        else {
+        } else { //否则就会发生碰撞
             Node<K, V> e; //相当于一个temp，一个暂时存放键值对的节点
             K k; //一个temp，暂时存放key的值
             //跟数组头结点p比较，如果key的hash值相等，key对象也相等。为什么要两者都满足，因为根据不同key对象的hashCode计算出来的hash可能相等，所以还需要通过比较引用("==")或者比较对象("equals")的方式判断。
             //你可能要说那可以直接比较key对象就行，因为key相同，hash肯定相同。我们根据hash不同（p.hash == hash为false），可以判断出不是同一个key，我们知道符号"&&"有短路功能，所以整体为false，不用每次都去比较key，提高了效率。
-            if (p.hash == hash &&
-                    ((k = p.key) == key || (key != null && key.equals(k))))
+            if (p.hash == hash && ((k = p.key) == key || (key != null && key.equals(k))))
                 e = p;//我们将数组的头结点p赋给e，用于更改头结点的value
                 //我们可以从下一个else中知道，一个桶只能存放8个节点，大于八个将转成红黑树存储。根据桶中的Entry数，判断p的类型是否是TreeNode类的实例
             else if (p instanceof TreeNode)
@@ -666,8 +681,7 @@ public class HashMap<K, V> extends AbstractMap<K, V>
                         break;
                     }
                     //上面的if判断是否跟桶中的第一个Entry相等，而这个if是依次跟桶中的Entry比较
-                    if (e.hash == hash &&
-                            ((k = e.key) == key || (key != null && key.equals(k))))
+                    if (e.hash == hash && ((k = e.key) == key || (key != null && key.equals(k))))
                         break;
                     p = e;//如果此时桶中有多个Entry,执行完两个if后还没跳出循环,e=p.next,相当于p=p.next.继续循环.这个else最重要的一点是要理解---利用e,依次比较桶中的Entry.
                 }
