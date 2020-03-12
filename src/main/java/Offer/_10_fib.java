@@ -4,6 +4,7 @@ public class _10_fib {
 
     public static int fib(int n) {
 
+
         return 1;
     }
 
