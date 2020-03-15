@@ -18,5 +18,7 @@ public class _415_addStrings {
 
     public static void main(String[] args) {
         System.out.println(addStrings("122", "32"));
+        System.out.println(addStrings("9", "99"));
+
     }
 }
