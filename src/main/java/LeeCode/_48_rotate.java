@@ -18,7 +18,7 @@ public class _48_rotate {
                 matrix[times + len - 1][times + len - i - 1] = matrix[times + i][times + len - 1];
                 matrix[times + i][times + len - 1] = temp;
             }
-            ++times;
+            times++;
         }
         return matrix;
     }
