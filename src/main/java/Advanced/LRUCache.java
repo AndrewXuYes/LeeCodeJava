@@ -8,6 +8,7 @@ import java.util.Map;
  * @date 2020/3/23 17:32
  */
 class LRUCache<K, V> extends LinkedHashMap<K, V> {
+
     private final int CACHE_SIZE;
 
     /**
@@ -16,6 +17,7 @@ class LRUCache<K, V> extends LinkedHashMap<K, V> {
      */
     public LRUCache(int cacheSize) {
         // true 表示让 linkedHashMap 按照访问顺序来进行排序，最近访问的放在头部，最老访问的放在尾部。
+        // Math.ceil浮点数向上取整
         super((int) Math.ceil(cacheSize / 0.75) + 1, 0.75f, true);
         CACHE_SIZE = cacheSize;
     }
