@@ -24,13 +24,12 @@ public class _50_myPow {
     }
 
     public static double pow2(double x, int n) {
-        int N = n;
-        if (N < 0) {
+        if (n < 0) {
             x = 1 / x;
-            N = -N;
+            n = -n;
         }
         double ans = 1;
-        for (long i = 0; i < N; i++)
+        for (long i = 0; i < n; i++)
             ans = ans * x;
         return ans;
     }
@@ -44,6 +43,7 @@ public class _50_myPow {
         double ans = 1;
         double current_product = x;
         for (long i = N; i > 0; i /= 2) {
+            //首位弹出或者最后一位弹出
             if ((i % 2) == 1)
                 ans = ans * current_product;
             current_product = current_product * current_product;
@@ -54,6 +54,9 @@ public class _50_myPow {
     public static void main(String[] args) {
         System.out.println("MyPow");
         System.out.println(pow3(2, 9));
+        System.out.println(pow3(-2, 9));
+        System.out.println(pow3(3, 9));
+        System.out.println(pow3(2, -2));
     }
 
 }
