@@ -4,9 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class _47_permuteUnique {
-    //error
     public static List<List<Integer>> permuteUnique(int[] nums) {
-
+        //回溯放，放弃
         Arrays.sort(nums);
 
         return null;

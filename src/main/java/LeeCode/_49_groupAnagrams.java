@@ -23,15 +23,15 @@ public class _49_groupAnagrams {
 
     public static List<List<String>> groupAnagrams(String[] strs) {
         if (strs.length == 0) return new ArrayList<>();
-        Map<String, List<String>> hashMap = new HashMap<String, List<String>>();
+        Map<String, List<String>> hashMap = new HashMap<>();
         for (String str : strs) {
             char[] char1 = str.toCharArray();
             Arrays.sort(char1);
             String key = String.valueOf(char1);
             if (hashMap.containsKey(key)) hashMap.get(key).add(str);
-            else hashMap.put(key, new ArrayList<String>(Arrays.asList(str)));
+            else hashMap.put(key, new ArrayList<>(Arrays.asList(str)));
         }
-        return new ArrayList<List<String>>(hashMap.values());
+        return new ArrayList<>(hashMap.values());
     }
 
 

@@ -34,6 +34,7 @@ public class _50_myPow {
         return ans;
     }
 
+    //每次折半相乘，控制首位末尾弹出
     public static double pow3(double x, int n) {
         long N = n;
         if (N < 0) {

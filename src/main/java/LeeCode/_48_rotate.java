@@ -1,10 +1,12 @@
 package LeeCode;
 
 public class _48_rotate {
-    public static int[][] rotate(int[][] matrix) {
+
+    //放弃
+    public void rotate(int[][] matrix) {
         System.out.println("n==" + (matrix.length));
         if (matrix.length == 0 || matrix.length != matrix[0].length) {
-            return new int[0][0];
+
         }
         int nums = matrix.length;
         int times = 0;
@@ -20,13 +22,7 @@ public class _48_rotate {
             }
             times++;
         }
-        return matrix;
+
+
     }
-
-    public static void main(String[] args) {
-
-        int[][] a = new int[5][5];
-        rotate(a);
-    }
-
 }
