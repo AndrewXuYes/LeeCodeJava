@@ -8,13 +8,13 @@ public class _55_canJump {
 
 
     public static boolean canJump(int[] nums) {
-        int lastPos = nums.length - 1;
+        int position = nums.length - 1;
 
         for (int i = nums.length - 1; i >= 0; i--)
-            if (i + nums[i] >= lastPos)
-                lastPos = i;
+            if (i + nums[i] >= position)
+                position = i;
 
-        return lastPos == 0;
+        return position == 0;
     }
 
 
