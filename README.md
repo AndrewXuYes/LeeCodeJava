@@ -1,5 +1,5 @@
-# LeeCode
-算法相关：LeeCode+剑指Offer
+# leecode
+算法相关：leecode+剑指Offer
 
 
 
