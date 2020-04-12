@@ -15,7 +15,6 @@ public class _1_twoNumSum {
 
         Map<Integer, Integer> hashMap = new HashMap<>();
         for (int i = 0; i < a.length; i++) {
-            System.out.println(i);
             if (hashMap.containsKey(b - a[i]))
                 return new int[]{hashMap.get(b - a[i]), i};
             hashMap.put(a[i], i);
