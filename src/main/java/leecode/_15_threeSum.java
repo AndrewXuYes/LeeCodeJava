@@ -13,7 +13,7 @@ public class _15_threeSum {
         Arrays.sort(nums);
 
         for (int k = 0; k < nums.length - 2; k++) {
-            if (nums[k] > 0) break; // 如果当前数字大于0，则三数之和一定大于0，所以结束循环
+            if (nums[k] > 0) break; // 当前数字大于0，则三数之和一定大于0，所以结束循环
             if (k > 0 && nums[k] == nums[k - 1]) continue; // 去重
 
             int start = k + 1, end = nums.length - 1;

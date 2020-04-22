@@ -19,6 +19,7 @@ public class _1_twoNumSum {
                 return new int[]{hashMap.get(b - a[i]), i};
             hashMap.put(a[i], i);
         }
+
         return new int[]{-1, -1};
     }
 

@@ -1,6 +1,7 @@
 package leecode;
 
 public class _11_maxArea {
+
     public static int maxArea(int[] height) {
         int maxarea = 0;
         for (int i = 0; i < height.length; i++) {
