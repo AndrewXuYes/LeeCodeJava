@@ -35,7 +35,7 @@
         <dependency><!--Apache Commons包中的一个，包含了一些Apache开发的集合类，功能比java.util.*强大-->
             <groupId>commons-collections</groupId>
             <artifactId>commons-collections</artifactId>
-            <version>3.2.1</version>
+            <version>3.2.2</version>
         </dependency>
         <dependency>
             <groupId>joda-time</groupId>
